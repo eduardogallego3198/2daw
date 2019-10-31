@@ -1,0 +1,16 @@
+document.write("appCodeName: \"" + navigator.appCodeName + "\"<br/>");
+document.write("appName: \"" + navigator.appName + "\"<br/>");
+document.write("appVersion: \"" + navigator.appVersion + "\"<br/>");
+document.write("cookieEnabled: \"" + navigator.cookieEnabled + "\"<br/>");
+document.write("deviceMemory: \"" + navigator.deviceMemory + "\"<br/>");
+document.write("doNotTrack: \"" + navigator.doNotTrack + "\"<br/>");
+document.write("hardwareConcurrency: \"" + navigator.hardwareConcurrency + "\"<br/>");
+document.write("language: \"" + navigator.language + "\"<br/>");
+document.write("maxTouchPoints: \"" + navigator.maxTouchPoints + "\"<br/>");
+document.write("onLine: \"" + navigator.onLine + "\"<br/>");
+document.write("platform: \"" + navigator.platform + "\"<br/>");
+document.write("product: \"" + navigator.product + "\"<br/>");
+document.write("productSub: \"" + navigator.productSub + "\"<br/>");
+document.write("userAgent: \"" + navigator.userAgent + "\"<br/>");
+document.write("vendor: \"" + navigator.vendor + "\"<br/>");
+document.write("vendorSub: \"" + navigator.vendorSub + "\"<br/>");

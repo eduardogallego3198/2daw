@@ -1,0 +1,9 @@
+document.write("availHeight: " + screen.availHeight + "<br/>");
+document.write("availWidth: " + screen.availWidth + "<br/>");
+document.write("colorDepth: " + screen.colorDepth + "<br/>");
+document.write("orientation.angle: " + screen.orientation.angle + "<br/>");
+document.write("orientation.onchange: " + screen.orientation.onchange + "<br/>");
+document.write("orientation.type: " + screen.orientation.type + "<br/>");
+document.write("height: " + screen.height + "<br/>");
+document.write("pixelDepth: " + screen.pixelDepth + "<br/>");
+document.write("width: " + screen.width + "<br/>");

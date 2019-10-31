@@ -1,0 +1,7 @@
+body { text-align: center; }
+
+table, th, td { border: solid darkgreen; border-collapse: collapse;}
+
+th, td { width: 100px; height: 25px; }
+
+tr > td:nth-child(1), tr:nth-child(5) > td { font-weight: bold; }
