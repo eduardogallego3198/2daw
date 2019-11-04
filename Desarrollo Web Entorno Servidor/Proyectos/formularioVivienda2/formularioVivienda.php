@@ -8,7 +8,7 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<h2>Inserción de vivienda</h2>
+	<h2>InserciÃ³n de vivienda</h2>
 	<p>Introduzca los datos de la vivienda:</p>
 	<form enctype="multipart/form-data" action="controlFormulario.php" method="post">
 		<table>
@@ -36,13 +36,13 @@
 				</td>
 			</tr>
 			<tr>
-				<td><strong>Dirección:</strong></td>
+				<td><strong>DirecciÃ³n:</strong></td>
 				<td>
 					<input type="text" name="direccion">
 				</td>
 			</tr>
 			<tr>
-				<td><strong>Número de dormitorios:</strong></td>
+				<td><strong>NÃºmero de dormitorios:</strong></td>
 				<td>
 					<input type="radio" name="dormitorios" value="1">1 
 					<input type="radio" name="dormitorios" value="2">2 
@@ -53,17 +53,17 @@
 			</tr>
 			<tr>
 				<td><strong>Precio:</strong></td>
-				<td><input type="text" name="precio"> €</td>
+				<td><input type="text" name="precio"> â‚¬</td>
 			</tr>
 			<tr>
-				<td><strong>Tamaño:</strong></td>
+				<td><strong>TamaÃ±o:</strong></td>
 				<td><input type="text" name="tamano"> m<sup>2</sup></td>
 			</tr>
 			<tr>
 				<td><strong>Extras (marque los que procedan):</strong></td>
 				<td>
 					<input type="checkbox" name="extras[]" value="Piscina">Piscina 
-					<input type="checkbox" name="extras[]" value="Jardin">Jardín 
+					<input type="checkbox" name="extras[]" value="Jardin">JardÃ­n 
 					<input type="checkbox" name="extras[]" value="Garaje">Garaje
 				</td>
 			</tr>
