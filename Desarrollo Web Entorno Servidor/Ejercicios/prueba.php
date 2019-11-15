@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-</head>
-<body>
     <?php
         $nombre = 'Eduardo';
         
@@ -37,6 +31,12 @@
 
         echo $str2;
     ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+
 </body>
 </html>
-

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Películas almacenadas en Firebase</title>
+
+		<!-- Firebase App is always required and must be first -->
+		<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+		<script>
+  			// Initialize Firebase
+  			var config = {
+				   apiKey: "AIzaSyDkmymi538rDl3xYcrZxnvBZYRlX2xelYg",
+				   authDomain: "videoclub1234567.firebaseapp.com",
+				   databaseURL: "https://videoclub1234567.firebaseio.com",
+				   projectId: "videoclub1234567",
+				   storageBucket: "",
+				   messagingSenderId: "840670095045"
+  			};
+			firebase.initializeApp(config);
+			
+			//var ref=firebase.database().ref();
+			<!-- Devuelve un hijo de ref (en este caso, appName). A partir de app name, me traigo la informacion-->
+			<!-- Usamos eventos para la recuperación en tiempo real de la informacion de la BD-->
+			<!-- on crea un manejador de evento -->
+			//ref.child("appName").on("value", function(snapshot){
+			//	<!-- snapshot=> fotografia de como está el registro en ese momento-->
+			//	console.log(snapshot.val()); <!-- Devuelve el contenido de appName-->			
+			//});
+
+	</script>
+
+</head>
+
+<body>
+	
+
+<h1>Las películas</h1>
+<!-- Estilo de la tabla -->
+<style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+
+table {
+    border-spacing: 5px;
+}
+
+</style>
+<table style="width:100%" id="ex-table">
+  <tr id="tr">
+    <th>Año:</th>
+    <th>Director:</th> 
+    <th>Pelicula:</th>
+    
+ </table> 
+
+<!-- Add jQuery library before your script which uses $ or jQuery so that $ can be identified in scripts -->
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    var database = firebase.database();
+    // once
+    // once(eventType, successCallback, failureCallbackOrContext, context) returns firebase.Promise containing non-null firebase.database.DataSnapshot
+    //eventType: One of the following strings: "value", "child_added", "child_changed", "child_removed", or "child_moved."
+    //successCallback: Optional. A callback that fires when the specified event occurs. The callback will be passed a DataSnapshot. For ordering purposes, "child_added", "child_changed", and "child_moved" will also be passed a string containing the key of the previous child by sort order, or null if it is the first child.
+    //failureCallbackOrContext: Optional
+    // context: optional
+    database.ref("pelicula").once('value', function(snapshot){
+        if(snapshot.exists()){
+            var content = '';
+            snapshot.forEach(function(data){
+                var val = data.val();
+                content +='<tr>';
+                content += '<td>' + val.anio + '</td>';
+                content += '<td>' + val.director + '</td>';
+                content += '<td>' + val.titulo + '</td>';
+                content += '</tr>';
+            });
+            $('#ex-table').append(content);
+        }
+    });
+</script>
+
+
+</body>
+
+</html>

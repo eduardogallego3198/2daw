@@ -1,0 +1,62 @@
+Video: Model View Controller Paradigm
+https://www.youtube.com/watch?v=LiBdzE_DJn4
+
+Reading: A Detailed Overview of the Model-View-Controller (MVC)
+http://www.onextrapixel.com/2012/03/14/a-detailed-overview-of-the-model-view-controller-mvc-coding-structure/
+
+[Reading: Offline Storage]
+(https://www.html5rocks.com/en/tutorials/offline/whats-offline/)
+
+Slides #1 - DOM
+http://www.teaching-materials.org/jsweb/slides/dom.html
+
+Slides #2 -More About DOM
+http://www.teaching-materials.org/jsdom/#/
+
+In Depth: DOM
+http://www.quirksmode.org/dom/intro.html
+
+Slides #3 - Graphics in HTML5 - SVG vs Canvas
+https://www.teaching-materials.org/_deprecated/graphics/
+
+In Depth - Graphics in HTML5: Canvas vs SVG
+https://msdn.microsoft.com/es-es/library/ie/gg193983%28v=vs.85%29.aspx#HTML5_Graphic_Technologies
+
+In Depth: SVG Refference Guide
+https://www.w3schools.com/svg/svg_reference.asp
+
+In Depth: List of Most Popular HTML5 Game Engines
+https://html5gameengine.com/
+
+In Depth: How to design a game with HTML5 + JS
+https://www.adictosaltrabajo.com/tutoriales/videojuego-html5-javascript/
+
+In Depth - ES6 Módules
+https://desarrolloweb.com/articulos/es6-modules.html
+
+Slides #4 - Google Charts
+https://developers.google.com/chart/interactive/docs/index
+
+Slides #5 - D3 (C3.js)
+http://www.teaching-materials.org/d3/#/
+
+In Depth: D3 Tutorial
+http://alignedleft.com/tutorials/d3
+
+Slides #6 - MVC
+http://www.teaching-materials.org/jsmvc/#/1
+
+In Depth: Model View Controller(MVC) example in PHP
+http://php-html.net/tutorials/model-view-controller-in-php/
+
+In Depth: MVC (Google example)
+https://discusscode.blogspot.com.es/2012/10/how-to-write-javascript-in-mvc-style.html
+
+Slides #7: Web Storage
+https://www.w3schools.com/html/html5_webstorage.asp
+
+In Depth: How to store objects
+https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm
+
+In Depth: Web Storage
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API

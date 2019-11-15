@@ -25,146 +25,148 @@ class Ajedrez {
         }
     }
 
-    moverPeonBlanco(pieza, antPos, nuePos) {
-        if(nuePos == [(antPos[0] + 1), antPos[1]] 
+    moverPeonBlanco(pieza, posAct, nuePos) {
+        if(nuePos == [(posAct[0] + 1), posAct[1]])
+            if(this.tablero[nuePos[0]][nuePos[1]] == null)
+                moverVacio(posAct, nuePos);
+            else 
+                return "Movimiento no válido";
+        else if(nuePos == [(posAct[0] + 1), (posAct[1] + 1 || posAct[1] - 1)])
+            if(this.tablero[nuePos[0]][nuePos[1]] != null)
+                moverLleno(pieza, posAct, nuePos);
+            else 
+                return "Movimiento no válido";
+    }
+
+    moverPeonNegro(pieza, posAct, nuePos) {
+        if(nuePos == [(posAct[0] - 1), posAct[1]] 
             && this.tablero[nuePos[0]][nuePos[1]] == null)
-            moverVacio(antPos, nuePos);
-        else if(nuePos == [(antPos[0] + 1), (antPos[1] + 1 || antPos[1] - 1)] 
+            moverVacio(posAct, nuePos);
+        else if(nuePos == [(posAct[0] - 1), (posAct[1] + 1 || posAct[1] - 1)] 
                 && this.tablero[nuePos[0]][nuePos[1]] != null)
-            moverLleno(pieza, antPos, nuePos);
+          moverLleno(pieza, posAct, nuePos);
         else 
             return "Movimiento no válido";
     }
 
-    moverPeonNegro(pieza, antPos, nuePos) {
-        if(nuePos == [(antPos[0] - 1), antPos[1]] 
+    moverTorre(pieza, posAct, nuePos) {
+        if(nuePos == [(nuePos[0] || posAct[0]), (posAct[1] || nuePos[1])] 
             && this.tablero[nuePos[0]][nuePos[1]] == null)
-            moverVacio(antPos, nuePos);
-        else if(nuePos == [(antPos[0] - 1), (antPos[1] + 1 || antPos[1] - 1)] 
+            moverVacio(posAct, nuePos);
+        else if(nuePos == [(nuePos[0] || posAct[0]), (posAct[1] || nuePos[1])] 
                 && this.tablero[nuePos[0]][nuePos[1]] != null)
-          moverLleno(pieza, antPos, nuePos);
+            moverLleno(pieza, posAct, nuePos);
         else 
             return "Movimiento no válido";
     }
 
-    moverTorre(pieza, antPos, nuePos) {
-        if(nuePos == [(nuePos[0] || antPos[0]), (antPos[1] || nuePos[1])] 
+    moverCaballo(pieza, posAct, nuePos) {
+        if(nuePos == [(posAct[0] + 2), (posAct[1] + 1 || posAct[1] - 1)] 
             && this.tablero[nuePos[0]][nuePos[1]] == null)
-            moverVacio(antPos, nuePos);
-        else if(nuePos == [(nuePos[0] || antPos[0]), (antPos[1] || nuePos[1])] 
-                && this.tablero[nuePos[0]][nuePos[1]] != null)
-            moverLleno(pieza, antPos, nuePos);
-        else 
-            return "Movimiento no válido";
-    }
-
-    moverCaballo(pieza, antPos, nuePos) {
-        if(nuePos == [(antPos[0] + 2), (antPos[1] + 1 || antPos[1] - 1)] 
-            && this.tablero[nuePos[0]][nuePos[1]] == null)
-            moverVacio(antPos, nuePos);
-        else if(nuePos == [(antPos[0] + 2), (antPos[1] + 1 || antPos[1] - 1)] 
+            moverVacio(posAct, nuePos);
+        else if(nuePos == [(posAct[0] + 2), (posAct[1] + 1 || posAct[1] - 1)] 
                && this.tablero[nuePos[0]][nuePos[1]] != null)
-            moverLleno(pieza, antPos, nuePos);
+            moverLleno(pieza, posAct, nuePos);
         else 
             return "Movimiento no válido";
     }
 
-    moverAlfil(pieza, antPos, nuePos) {
+    moverAlfil(pieza, posAct, nuePos) {
         let diagonalValida = true;
-        if((nuePos.indexOf(nuePos[0]) - antPos.indexOf(antPos[0])) - 
-            (nuePos.indexOf(nuePos[1]) - antPos.indexOf(antPos[1])) != 0)
+        if((nuePos.indexOf(nuePos[0]) - posAct.indexOf(posAct[0])) - 
+            (nuePos.indexOf(nuePos[1]) - posAct.indexOf(posAct[1])) != 0)
             diagonalValida = false;
-        if(nuePos == [(nuePos.indexOf(nuePos[0]) - antPos.indexOf(antPos[0])), 
-            (nuePos.indexOf(nuePos[1]) - antPos.indexOf(antPos[1]))] 
+        if(nuePos == [(nuePos.indexOf(nuePos[0]) - posAct.indexOf(posAct[0])), 
+            (nuePos.indexOf(nuePos[1]) - posAct.indexOf(posAct[1]))] 
             && diagonalValida && this.tablero[nuePos[0]][nuePos[1]] == null)
-            moverVacio(antPos, nuePos);
-        else if(nuePos == [(nuePos.indexOf(nuePos[0]) - antPos.indexOf(antPos[0])), 
-                (nuePos.indexOf(nuePos[1]) - antPos.indexOf(antPos[1]))] 
+            moverVacio(posAct, nuePos);
+        else if(nuePos == [(nuePos.indexOf(nuePos[0]) - posAct.indexOf(posAct[0])), 
+                (nuePos.indexOf(nuePos[1]) - posAct.indexOf(posAct[1]))] 
                 && diagonalValida && this.tablero[nuePos[0]][nuePos[1]] != null)
-            moverLleno(pieza, antPos, nuePos);
+            moverLleno(pieza, posAct, nuePos);
         else 
             return "Movimiento no válido";
     }
 
-    moverRey(pieza, antPos, nuePos) {
-        if(nuePos == [(antPos[0] + 1 || antPos[0] - 1 || antPos[0]), 
-            (antPos[1] || antPos[1] + 1 || antPos[1] - 1)] 
+    moverRey(pieza, posAct, nuePos) {
+        if(nuePos == [(posAct[0] + 1 || posAct[0] - 1 || posAct[0]), 
+            (posAct[1] || posAct[1] + 1 || posAct[1] - 1)] 
             && this.tablero[nuePos[0]][nuePos[1]] == null)
-            moverVacio(antPos, nuePos);
-        else if(nuePos == [(antPos[0] + 1 || antPos[0] - 1 || antPos[0]), 
-               (antPos[1] || antPos[1] + 1 || antPos[1] - 1)] 
+            moverVacio(posAct, nuePos);
+        else if(nuePos == [(posAct[0] + 1 || posAct[0] - 1 || posAct[0]), 
+               (posAct[1] || posAct[1] + 1 || posAct[1] - 1)] 
                 && this.tablero[nuePos[0]][nuePos[1]] != null)
-            moverLleno(pieza, antPos, nuePos);
+            moverLleno(pieza, posAct, nuePos);
         else 
             return "Movimiento no válido";
     }
 
-    moverReina(pieza, antPos, nuePos) {
+    moverReina(pieza, posAct, nuePos) {
         let diagonalValida = true;
-        if((nuePos.indexOf(nuePos[0]) - antPos.indexOf(antPos[0])) - 
-            (nuePos.indexOf(nuePos[1]) - antPos.indexOf(antPos[1])) != 0)
+        if((nuePos.indexOf(nuePos[0]) - posAct.indexOf(posAct[0])) - 
+            (nuePos.indexOf(nuePos[1]) - posAct.indexOf(posAct[1])) != 0)
             diagonalValida = false;
-        if(nuePos == [(nuePos.indexOf(nuePos[0]) - antPos.indexOf(antPos[0]) || antPos[0]), 
-            (antPos[1] || nuePos.indexOf(nuePos[1]) - antPos.indexOf(antPos[1]))] 
+        if(nuePos == [(nuePos.indexOf(nuePos[0]) - posAct.indexOf(posAct[0]) || posAct[0]), 
+            (posAct[1] || nuePos.indexOf(nuePos[1]) - posAct.indexOf(posAct[1]))] 
             && diagonalValida && this.tablero[nuePos[0]][nuePos[1]] == null)
-            moverVacio(antPos, nuePos);
-        else if(nuePos == [(nuePos.indexOf(nuePos[0]) - antPos.indexOf(antPos[0]) || antPos[0]), 
-                (antPos[1] || nuePos.indexOf(nuePos[1]) - antPos.indexOf(antPos[1]))] 
+            moverVacio(posAct, nuePos);
+        else if(nuePos == [(nuePos.indexOf(nuePos[0]) - posAct.indexOf(posAct[0]) || posAct[0]), 
+                (posAct[1] || nuePos.indexOf(nuePos[1]) - posAct.indexOf(posAct[1]))] 
                 && diagonalValida && this.tablero[nuePos[0]][nuePos[1]] != null)
-            moverLleno(pieza, antPos, nuePos);
+            moverLleno(pieza, posAct, nuePos);
         else 
             return "Movimiento no válido";
     }
 
-    moverBlanco(pieza, antPos, nuePos) {
+    moverBlanco(pieza, posAct, nuePos) {
         if(pieza == 'pb')
-            moverPeonBlanco(pieza, antPos, nuePos);
+            moverPeonBlanco(pieza, posAct, nuePos);
         else if(pieza == 'tb')
-            moverTorre(pieza, antPos, nuePos);
+            moverTorre(pieza, posAct, nuePos);
         else if(pieza == 'cb')
-            moverCaballo(pieza, antPos, nuePos);
+            moverCaballo(pieza, posAct, nuePos);
         else if(pieza == 'ab')
-            moverAlfil(pieza, antPos, nuePos);
+            moverAlfil(pieza, posAct, nuePos);
         else if(pieza == 'rb')
-            moverRey(pieza, antPos, nuePos);
+            moverRey(pieza, posAct, nuePos);
         else if(pieza == 'rab')
-            moverReina(pieza, antPos, nuePos);
+            moverReina(pieza, posAct, nuePos);
         for(let i = 0; i < this.ganaBlancas.length; i++)
             if(this.ganaBlancas[i] == 'rb')
                 return "Ha ganado el blanco";
     }
 
-    moverNegro(pieza, antPos, nuePos){
+    moverNegro(pieza, posAct, nuePos){
         if(pieza == 'pn')
-            this.moverPeonNegro(pieza, antPos, nuePos);
+            this.moverPeonNegro(pieza, posAct, nuePos);
         else if(pieza == 'tn')
-            moverTorre(pieza, antPos, nuePos);
+            moverTorre(pieza, posAct, nuePos);
         else if(pieza == 'cn')
-            moverCaballo(pieza, antPos, nuePos);
+            moverCaballo(pieza, posAct, nuePos);
         else if(pieza == 'an')
-            moverAlfil(pieza, antPos, nuePos);
+            moverAlfil(pieza, posAct, nuePos);
         else if(pieza == 'rn')
-            moverRey(pieza, antPos, nuePos);
+            moverRey(pieza, posAct, nuePos);
         else if(pieza == 'ran')
-            moverReina(pieza, antPos, nuePos);
+            moverReina(pieza, posAct, nuePos);
         for(let i = 0; i < this.ganaNegras.length; i++)
             if(this.ganaNegras[i] == 'rb')
                 return "Ha ganado el negro";
     }
 
-    moverVacio(antPos, nuePos) {
-        this.tablero[nuePos[0]][nuePos[1]] = this.tablero[antPos[0]][antPos[1]];
-        this.tablero[antpos[0]][antpos[1]] = null;
+    moverVacio(posAct, nuePos) {
+        this.tablero[nuePos[0]][nuePos[1]] = this.tablero[posAct[0]][posAct[1]];
+        this.tablero[posAct[0]][posAct[1]] = null;
     }
 
-    moverLleno(pieza, antPos, nuePos) {
+    moverLleno(pieza, posAct, nuePos) {
         if(pieza == 'pb' || pieza == 'tb' || pieza == 'cb' || pieza == 'ab' 
             || pieza == 'rb' || pieza == 'rab')
             this.ganaBlancas.push(this.tablero[nuePos[0]][nuePos[1]]);
         else
             this.ganaNegras.push(this.tablero[nuePos[0]][nuePos[1]]);
-        this.tablero[nuePos[0]][nuePos[1]] = this.tablero[antPos[0]][antPos[1]];
-        this.tablero[antPos[0]][antPos[1]] = null;
+        this.tablero[nuePos[0]][nuePos[1]] = this.tablero[posAct[0]][posAct[1]];
+        this.tablero[posAct[0]][posAct[1]] = null;
     }
 }
 
